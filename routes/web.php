@@ -23,10 +23,16 @@ Route::group(['middleware' => ['web']],function(){
 	Route::get('auth/login' , 'Auth\LoginController@sendLoginResponse');
 	Route::get('auth/logout' , 'Auth\LoginController@logout');
 
-
 	//Registratin Routes
 	Route::get('auth/register' , 'Auth\RegisterController@register');
 */
+
+	//comment
+	Route::post('comment/{post_id}' , [ 'uses' => 'CommentsController@store' , 'as' => 'comments.store' ]);
+
+	//slug 
+	Route::get('blog/{slug}' , ['uses' => 'BlogController@getSingle' , 'as' => 'blog.single'])->where('slug' , '[\w\d/-\_]+');
+
 	Route::get('/contact', 'PagesController@getContact');
 
 	Route::get('/about', 'PagesController@getAbout');

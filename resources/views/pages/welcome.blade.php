@@ -18,14 +18,14 @@
 
 
       <div class="row">
-            <div class="col-md-8" style="background-color:yellow;">
+            <div class="col-md-8" style="background-color:lightblue;">
 
               @foreach($posts as $post)
 
                 <div class="post">
                    <h3>{{ $post->title }}</h3>
                    <p>{{ $post->body }}</p>
-                   <a href="#" class="btn btn-primary">Read More</a> 
+                   <a href="{{ url('blog/' . $post->slug) }}" class="btn btn-primary">Read More</a> 
                 </div>
 
                 <hr>
